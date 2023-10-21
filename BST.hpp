@@ -41,6 +41,23 @@ public:
     inorder(korzen->prawe);
     }
 
+    void preorder(BST* wezel){
+            if (wezel == NULL)return;
+
+    cout << wezel->dane << " ";
+    preorder(wezel->lewe);// Przejdz lewe poddrzewo
+    preorder(wezel->prawe);// Przejdz prawe poddrzewo
+    }
+
+    void postorder(BST* wezel)
+{
+    if (wezel == NULL)return;
+ 
+    postorder(wezel->lewe);
+    postorder(wezel->lewe);
+    cout << wezel->dane << " ";
+}
+
     BST* usunElement(BST* korzen, int wartosc){
         //Przypadek bazowy
          if (korzen == NULL)
