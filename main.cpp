@@ -6,7 +6,5 @@ int main(){
     drzewo.wstaw(korzen,10);
     drzewo.wstaw(korzen,15);
     drzewo.wstaw(korzen,20);
-
-
-
+    drzewo.usunElement(korzen,20);
 }
