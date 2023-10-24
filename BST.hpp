@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
  
 class BST {
@@ -15,6 +15,11 @@ public:
         dane = wartosc;
         lewe = prawe = NULL;
     }
+
+    int getDane(){return dane;}
+    BST* getLewe(){return lewe;}
+    BST* getPrawe(){return prawe;}
+
     BST* wstaw(BST* korzen, int wartosc){
 
     //Jeśli drzewo jest puste dodaj korzeń    
