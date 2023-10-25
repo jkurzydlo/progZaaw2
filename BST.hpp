@@ -96,6 +96,19 @@ public:
     }
     
     }
+
+    // Usuwanie całego drzewa
+    void usunCaleDrzewo(BST* korzen) {
+        if (korzen == NULL) {
+            return;
+        }
+        usunCaleDrzewo(korzen->lewe);
+        usunCaleDrzewo(korzen->prawe);
+        delete korzen;
+        korzen = NULL;
+    }
+
+    
 };
  
 
