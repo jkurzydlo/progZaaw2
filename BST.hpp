@@ -108,7 +108,32 @@ public:
         korzen = NULL;
     }
 
-    
+    // Szukanie drogi do podanego elementu i wyświetlanie jej
+    bool znajdzSciezke(BST* korzen, int wartosc) {
+        if (korzen == NULL) {
+            return false;
+        }
+        
+        cout << korzen->dane << " ";
+        
+        if (korzen->dane == wartosc) {
+            return true;
+        }
+        
+        if (wartosc < korzen->dane && znajdzSciezke(korzen->lewe, wartosc)) {
+            return true;
+        }
+        
+        if (wartosc > korzen->dane && znajdzSciezke(korzen->prawe, wartosc)) {
+            return true;
+        }
+        
+        // Jeżeli nie znaleziono elementu w poddrzewie, usuń korzeń drogi
+        cout << "(backtracking) ";
+        return false;
+    }
+
+
 };
  
 
