@@ -118,6 +118,59 @@ public:
     }
     
     }
+
+    // Usuwanie całego drzewa
+    void usunCaleDrzewo(BST* korzen) {
+        if (korzen == NULL) {
+            return;
+        }
+        usunCaleDrzewo(korzen->lewe);
+        usunCaleDrzewo(korzen->prawe);
+        delete korzen;
+        korzen = NULL;
+    }
+
+    // Szukanie drogi do podanego elementu i wyświetlanie jej
+    bool znajdzSciezke(BST* korzen, int wartosc) {
+        if (korzen == NULL) {
+            return false;
+        }
+        
+        cout << korzen->dane << " ";
+        
+        if (korzen->dane == wartosc) {
+            return true;
+        }
+        
+        if (wartosc < korzen->dane && znajdzSciezke(korzen->lewe, wartosc)) {
+            return true;
+        }
+        
+        if (wartosc > korzen->dane && znajdzSciezke(korzen->prawe, wartosc)) {
+            return true;
+        }
+        
+        // Jeżeli nie znaleziono elementu w poddrzewie, usuń korzeń drogi
+        cout << "(backtracking) ";
+        return false;
+    }
+
+    void wyswietlCaleDrzewo(BST* korzen) {
+        if (korzen == NULL) {
+            return;
+        }
+
+        // Przechodzenie przez lewe poddrzewo
+        wyswietlCaleDrzewo(korzen->lewe);
+
+        // Wyświetlenie wartości bieżącego węzła
+        cout << korzen->dane << " ";
+
+        // Przechodzenie przez prawe poddrzewo
+        wyswietlCaleDrzewo(korzen->prawe);
+    }
+
+
 };
  
 
