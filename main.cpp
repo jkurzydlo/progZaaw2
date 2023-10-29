@@ -1,4 +1,6 @@
+#include "BST.hpp"
 #include "Zapis.hpp"
+
 int main(){
     BST drzewo, *korzen = NULL;
     korzen = drzewo.wstaw(korzen,50);
