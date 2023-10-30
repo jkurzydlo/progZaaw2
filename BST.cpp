@@ -149,7 +149,7 @@ using namespace std;
         }
         
         // Jeżeli nie znaleziono elementu w poddrzewie, usuń korzeń drogi
-        cout << "(backtracking) ";
+        cout << "(backtracking) sfsdfsdfsdfs";
         return false;
     }
 
