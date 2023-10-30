@@ -153,19 +153,5 @@ using namespace std;
         return false;
     }
 
-    void BST::wyswietlCaleDrzewo(BST* korzen) {
-        if (korzen == NULL) {
-            return;
-        }
-
-        // Przechodzenie przez lewe poddrzewo
-        wyswietlCaleDrzewo(korzen->lewe);
-
-        // Wyświetlenie wartości bieżącego węzła
-        cout << korzen->dane << " ";
-
-        // Przechodzenie przez prawe poddrzewo
-        wyswietlCaleDrzewo(korzen->prawe);
-    }
 
 
