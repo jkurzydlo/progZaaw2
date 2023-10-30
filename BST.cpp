@@ -130,27 +130,20 @@ using namespace std;
 
     // Szukanie drogi do podanego elementu i wyświetlanie jej
     bool BST::znajdzSciezke(BST* korzen, int wartosc) {
+        bool znaleziono = false; 
         if (korzen == NULL) {
             return false;
         }
         
         cout << korzen->dane << " ";
         
-        if (korzen->dane == wartosc) {
-            return true;
-        }
+        if (korzen->dane == wartosc) znaleziono = true;
         
-        if (wartosc < korzen->dane && znajdzSciezke(korzen->lewe, wartosc)) {
-            return true;
-        }
+        if (wartosc < korzen->dane && znajdzSciezke(korzen->lewe, wartosc)) znaleziono = true;
         
-        if (wartosc > korzen->dane && znajdzSciezke(korzen->prawe, wartosc)) {
-            return true;
-        }
+        if (wartosc > korzen->dane && znajdzSciezke(korzen->prawe, wartosc)) znaleziono = true;
         
-        // Jeżeli nie znaleziono elementu w poddrzewie, usuń korzeń drogi
-        cout << "(backtracking) ";
-        return false;
+        return znaleziono;
     }
 
 
