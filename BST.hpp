@@ -4,6 +4,7 @@ using namespace std;
 class BST {
     int dane;
     BST *lewe, *prawe;
+    static int rozmiar;
 public:
     ~BST();
     BST();
@@ -19,5 +20,6 @@ public:
     void usunCaleDrzewo(BST*);
     void wyswietlCaleDrzewo(BST*);
     bool znajdzSciezke(BST*,int);
+    int getRozmiar();
 };
  

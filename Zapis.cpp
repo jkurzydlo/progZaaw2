@@ -23,7 +23,9 @@
 
 
     Zapis::Zapis(const std::string& sciezka):sciezka(sciezka){};
-    
+    void Zapis::setSciezka(const std::string& sciezka){
+      this->sciezka = sciezka;
+    }
 
     void Zapis::zapiszDoPliku(BST* korzen){
        zapis.open(sciezka,std::ios::binary);
@@ -35,6 +37,12 @@
       zapis.open(sciezka);
       dodajDoZapisuTxt(wezly,rozmiar);
       zapis.close();
+    }
+
+    void Zapis::zapiszDoPlikuTxt(int wezel)
+    {
+      zapis.open(sciezka,std::ios::app);
+      zapis<<wezel;
     }
 
     BST* Zapis::wczytajZPliku(BST& drzewo, BST*korzen, int rozmiar, bool tekstowo){
@@ -57,7 +65,7 @@
         while (std::getline(odczyt,element,' '))
         {
           //zmiana string na int
-          std::cout<<std::stoi(element);
+          //std::cout<<std::stoi(element);
            drzewo.wstaw(korzen, std::stoi(element));
         }
         

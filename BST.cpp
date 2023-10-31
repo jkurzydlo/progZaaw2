@@ -17,9 +17,10 @@ using namespace std;
     int BST::getDane(){return dane;}
     BST* BST::getLewe(){return lewe;}
     BST* BST::getPrawe(){return prawe;}
+    int BST::getRozmiar(){return rozmiar;}
 
     BST* BST::wstaw(BST* korzen, int wartosc){
-
+        rozmiar++;
     //Jeśli drzewo jest puste dodaj korzeń    
     if (!korzen) 
     return new BST(wartosc);
@@ -37,7 +38,7 @@ using namespace std;
  
     // Wyświetlenie drzewa w porządku inorder
     void BST::inorder(BST* korzen){
-            if (!korzen) return;
+            if (!korzen){std::cout<<"\n"; return;}
     
     inorder(korzen->lewe);
     cout << korzen->dane << " ";
@@ -70,21 +71,25 @@ using namespace std;
 
     //Rekurencyjne wywołanie usuwania funkcji
     if (korzen->dane > wartosc) {
+        rozmiar--;
         korzen->lewe = usunElement(korzen->lewe, wartosc);
         return korzen;
     }
     else if (korzen->dane < wartosc) {
+        rozmiar--;
         korzen->prawe = usunElement(korzen->prawe, wartosc);
         return korzen;
     }
  
     // Jeżeli jeden z synów jest pusty usun korzen i zwroc prawy badz lewy nastepnik
     if (korzen->lewe == NULL) {
+        rozmiar--;
         BST* temp = korzen->prawe;
         delete korzen;
         return temp;
     }
     else if (korzen->prawe == NULL) {
+        rozmiar--;
         BST* temp = korzen->lewe;
         delete korzen;
         return temp;
@@ -112,6 +117,7 @@ using namespace std;
         korzen->dane = nastepnik->dane;
  
         delete nastepnik;
+        rozmiar--;
         return korzen;
     }
     
@@ -119,6 +125,7 @@ using namespace std;
 
     // Usuwanie całego drzewa
     void BST::usunCaleDrzewo(BST* korzen) {
+        rozmiar=0;
         if (korzen == NULL) {
             return;
         }
@@ -146,5 +153,5 @@ using namespace std;
         return znaleziono;
     }
 
-
+int BST::rozmiar=0;
 
