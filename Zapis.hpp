@@ -13,9 +13,11 @@ class Zapis{
     int do_zapisu=0;
     
     public:
+    void setSciezka(const std::string&);
     ~Zapis();
-    Zapis(const std::string&);   
+    Zapis(const std::string&);
     void zapiszDoPliku(BST*);
     void zapiszDoPlikuTxt(int*,int);
+    void zapiszDoPlikuTxt(int);
     BST* wczytajZPliku(BST&, BST*,int,bool);
 };
